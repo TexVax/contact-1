@@ -1,0 +1,639 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+
+
+
+
+.load {
+
+    position: fixed;
+    background-color: rgba(26, 26, 26, 0.87);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.preload-finish {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader {
+    border: 3px solid #f3f3f363;
+    border-radius: 50%;
+    border-top: 3px solid rgb(255, 128, 44);
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    background-color: rgb(36, 36, 36);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 80px 1fr 500px 300px
+    600px 100px;
+    grid-template-areas:
+    "header header header header"
+    "main main main main"
+    "score score score score"
+    "project project project project"
+    "video video video video"
+    "footer footer footer footer"
+
+
+    ;
+}
+
+li, a, button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: rgb(224, 224, 224);
+    text-decoration: none;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    background-color: rgb(51, 51, 51) ;
+    grid-area: header;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    transition: all 0.3s ease 0s;
+    border-bottom: rgba(255, 128, 44, 0) 2px solid;
+    
+}
+header.sticky {
+
+    background-color: rgba(37, 37, 37, 0.733) ;
+    height: 60px;
+    border-bottom: rgb(255, 128, 44) 2px solid;
+
+}
+
+main {
+    grid-area: main;
+}
+.burger div {
+    
+    width: 27px;
+    height: 2px;
+    background-color: rgb(226, 226, 226) ;
+    margin: 5px;
+}
+.burger {
+    display: none;
+}
+
+.logo {
+    width: 100px;
+    cursor: pointer;
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: rgb(255, 128, 44);
+    font-size: 25px;
+}
+
+.contact {
+    padding: 6px 25px;
+    background-color: rgb(44, 44, 44);
+    color: rgb(240, 240, 240);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.contact:hover {
+    background-color: rgb(255, 128, 44);
+    color: rgb(51, 51, 51) ;
+}
+
+.box {
+    background-color: rgb(214, 214, 214);
+    height: 400px;
+}
+
+.text-box {
+    font-size: 20px;
+    padding: 140px 10%;
+    color: rgb(51, 51, 51);
+}
+
+.projects-button {
+    margin-top: 20px;
+    padding: 6px 25px;
+    background-color: rgb(44, 44, 44);
+    color: rgb(240, 240, 240);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.projects-button:hover {
+    background-color: rgb(255, 128, 44);
+    color: rgb(51, 51, 51) ;
+}
+
+.recent {
+    grid-area: score;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "image text"
+    "image text"
+    ;
+
+    margin: 30px;
+}
+
+.recent-image {
+    grid-area: image;
+    
+    background-image: url(../media/images/Recent.png);
+    background-size: cover;
+}
+.recent-box {
+    grid-area: text;
+    padding-left: 25px;
+    padding-top: 10px;
+
+    background-color: rgba(44, 44, 44, 0) ;
+    color: rgb(214, 214, 214);
+}
+.recent-box p {
+    margin-top: 10px;
+    margin-right: 5px;
+}
+.nav-menu {
+    display: none;
+}
+
+.project-page {
+    background-color: rgb(44, 44, 44);
+
+
+    grid-area: project;
+
+    display: grid;
+    grid-template-columns: 25% 1fr 25%;
+    grid-template-rows: 20px 1fr 1fr 20px;
+    grid-template-areas: 
+    ". . ."
+    ". pro-img ."
+    ". pro-text ."
+    ". . .";
+    border-bottom: 1px rgb(82, 82, 82) solid;
+}
+.project-img {
+    grid-area: pro-img;
+    width: auto;
+    margin: auto;
+}
+.project-text {
+    grid-area: pro-text;
+
+    margin: auto;
+    text-align: center;
+    color: rgb(214, 214, 214);
+    
+}
+.project-text p {
+    color: rgb(161, 161, 161);
+}
+
+.video-main {
+    grid-area: video;
+    display: grid;
+    grid-template-columns: 25% 1fr 25%;
+    grid-template-rows: 80px 500px 10px;
+    grid-template-areas: 
+    "video-title video-title video-title"
+    "vid-1 vid-1 vid-1"
+    ;
+
+    background-color: rgb(44, 44, 44) ;
+
+    
+}
+.video-video {
+    margin: auto;
+    width: 60%;
+    grid-area: vid-1;
+
+}
+
+.video-title {
+    grid-area: video-title;
+    color: rgb(214, 214, 214);
+    margin-left: 80px;
+    margin-top:15px ;
+}
+footer{
+     grid-area: footer;
+     background-color:rgb(44, 44, 44);
+    text-align: center;
+    ;
+    color: rgb(214, 214, 214);
+ }
+
+ .up-link {
+     color: rgb(255, 128, 44) ;
+     transition: all 0.2s ease 0s;
+    }
+ .up-link:hover {
+     text-decoration: underline;
+     font-size: 20px;
+
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* for mobile */
+@media only screen and (max-width: 700px) {
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 10%;
+        background-color: rgb(51, 51, 51) ;
+        grid-area: header;
+    
+        top: 0;
+        left: 0;
+        width: 1fr;
+        height: 80px;
+        position: fixed;
+        transition: all 0.3s ease 0s;
+        border-bottom: rgba(255, 128, 44, 0) 2px solid;
+        
+    }
+    header.sticky {
+    background-color: rgba(51, 51, 51, 0.922) ;
+    height: 60px;
+    border-bottom: none;
+    /* border-radius:  00px 00px 10px 10px; */
+
+    }
+
+
+
+    .nav_links {
+        display: none;
+      
+    }
+
+    .contact {
+        padding: 6px 25px;
+        background-color: rgb(44, 44, 44);
+        color: rgb(240, 240, 240);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+        margin-left: 0px;
+
+    }
+
+    nav {
+        align-content: center;
+        text-align: center;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 80px 1fr 460px 250px 300px 70px ;
+        grid-template-areas:
+        "header header header header"
+        "main main main main"
+        "score score score score"
+        "project project project project"
+        "video video video video"
+        "footer footer footer footer";
+    }
+
+    .text-box {
+        font-size: 20px;
+        padding: 110px 10%;
+        color: rgb(51, 51, 51);
+    }
+    .box {
+        text-align: center;
+    } 
+
+    .recent {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 200px 200px;
+        grid-template-areas: 
+        "image image"
+        "text text"
+        ;
+    
+    
+    }
+    .recent-box h1 {
+        border-bottom: 2px rgb(214, 214, 214) solid ;
+        font-size: 20px;
+        line-height: 40px;
+    }
+    .recent-box p {
+        margin-top: 10px;
+        font-size: 15px;
+    }
+    .recent-box {
+        grid-area: text;
+        padding-left: 15px;
+        padding-top: 5px;
+    
+        background-color: rgb(44, 44, 44) ;
+
+    }
+    .hamburger-button {
+        position: fixed;
+        background-color: rgba(26, 26, 26, 0.781);
+        height: 60px;
+        width: 60px;
+        bottom: 20px;
+        right: 20px;
+        border-radius: 50px;
+        transition: all 0.3s ease 0s;
+        
+    }
+    .hamburger-button:hover {
+        position: fixed;
+        background-color: rgba(255, 128, 44, 0.918);
+        height: 60px;
+        width: 60px;
+        bottom: 20px;
+        right: 20px;
+        border-radius: 50px;
+        transition: all 0.3s ease 0s;
+        
+    }
+
+    .burger-icon {
+       margin-top: 23px;
+       margin-left: 11.67px;
+    }
+
+
+    .nav-menu {
+        position: fixed;
+        background-color: rgba(51, 51, 51, 0.922);
+        
+
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+        ". . ."
+        ". nav ."
+        ". . ."
+        ;
+        
+
+
+        right: -1000px;
+        left: 1000px;
+        top: 0;
+        bottom: 0;
+
+        /* border-radius: 20px; */
+
+        display: grid;
+
+        transition: all 0.2s ease-out 0s;
+
+    }
+
+
+    
+    .nav-menu-text {
+       
+        color: rgb(240, 240, 240) ;
+
+        margin: auto;
+        list-style: none;
+        line-height: 40px;
+        grid-area: nav;
+        
+    }
+    .nav-menu-text li a {
+       
+        color: rgb(240, 240, 240) ;
+
+  
+    }
+    .nav-menu-text li a:hover {
+        color: rgb(255, 128, 44);
+        
+
+    }
+    .change  {
+
+        
+        left: 55%;
+        right: 0px;
+        top: 60px;
+        bottom: 0px;
+
+    }
+    
+    
+    .line {
+
+        width: 27px;
+        height: 2px;
+        background-color: rgb(240, 240, 240);
+        margin: 5px;
+        
+        transition: all 0.3s ease 0s;
+        
+    }
+
+
+    .hambutton.open .line-1 {
+        transform: rotateZ(-45deg) translate(-5px, 5px);
+        width: 24px;
+        
+        
+    }
+
+    .hambutton.open .line-2 {
+        opacity: 0;
+    }
+
+    .hambutton.open .line-3 {
+        transform: rotateZ(45deg) translate(-5px, -5px);
+        width: 24px;
+    }
+
+
+    .project-page {
+
+        grid-area: project;
+    
+        display: grid;
+        grid-template-columns: 80px 1fr 80px;
+        grid-template-rows: 30px 1fr 1fr 30px;
+        grid-template-areas: 
+        ". . ."
+        ". pro-img ."
+        ". pro-text ."
+        ". . .";
+    }
+    .project-img {
+        grid-area: pro-img;
+        width: 35%;
+        margin: auto;
+    }
+    
+    .video-main {
+        grid-area: video;
+        display: grid;
+        grid-template-columns: 25% 1fr 25%;
+        grid-template-rows: 40px 1fr 10px;
+        grid-template-areas: 
+        "video-title video-title video-title"
+        "vid-1 vid-1 vid-1"
+        ;
+    
+        background-color: rgb(36, 36, 36) ;
+    
+        
+    }
+    .video-video {
+        width: 95%;
+        grid-area: vid-1;
+        margin:auto ;
+    }
+    .video-title {
+        grid-area: video-title;
+        color: rgb(214, 214, 214);
+        margin: auto;
+        font-size: 20px;
+        margin-top: 10px;
+    }
+    
+    footer p {
+        margin-top: 10px;
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+@media only screen and (min-width: 1450px) {
+
+    .video-video {
+        margin: auto;
+        width: 20%;
+    
+    }
+
+}
